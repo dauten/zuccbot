@@ -13,7 +13,7 @@ import pickle
 import urllib.request
 from forecastiopy import *
 import re
-from secret import BOT_SECRET
+from secret import BOT_SECRET, DARKSKY_KEY
 
 client = discord.Client()
 calendar = []
@@ -30,7 +30,7 @@ _skip_flag = False
 q = queue.Queue(maxsize=0)	
 
 #coords for SIUE and api key for forecastio/darksky
-api_key = "afdcb714b448f3f390bf6da777457d43"	
+api_key = DARKSKY_KEY
 lat = 38.792
 lon = -89.999
 
