@@ -317,11 +317,12 @@ async def public(message):
 			if wordStates[each] == 3:
 				 masterList += board[each] + " is assassin"
 			masterList += "\n"
-
+			print(each)
 		print("done")
 		client.send_message(message.channel, "here:")
-		client.send_message(message.author, masterList)
 
+		client.send_message(message.author, masterList)
+		print("exiting")
 
 	#1 in 50 chance to react with a random server-specific image
 	if random.randint(0,50) == 0:
