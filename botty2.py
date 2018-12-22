@@ -318,7 +318,7 @@ async def public(message):
 				 masterList += board[each] + " is assassin"
 			masterList += "\n"
 
-
+		print("done")
 		client.send_message(message.channel, "here:")
 		client.send_message(message.author, masterList)
 
