@@ -313,7 +313,7 @@ async def public(message):
 			if wordStates[each] == 0:
 				 masterList += board[each] + " is assassin"
 			masterList += "\n"
-
+			client.send_message(message.author, "here:")
 			client.send_message(message.author, masterList)
 
 
