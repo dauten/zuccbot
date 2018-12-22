@@ -40,7 +40,7 @@ teamA = [] #list of user id's in team A
 teamB = [] #list of user id's in team B
 wordStates = [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2] #list of states for the corresponding word in board.  0=red, 1=blue, 2=gray, 3=black
 
-async def shuffle(array):
+def shuffle(array):
 	for number in range(0, len(array)):
 		first = random.randint(1,36)
 		second = random.randint(1,36)
