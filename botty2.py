@@ -304,6 +304,7 @@ async def public(message):
 	elif message.content.lower().startswith("~spy"):
 		masterList = ""
 		for each in range(0, len(board)):
+			print(each)
 			if wordStates[each] == 0:
 				 masterList += board[each] + " is red"
 			if wordStates[each] == 1:
@@ -313,8 +314,10 @@ async def public(message):
 			if wordStates[each] == 0:
 				 masterList += board[each] + " is assassin"
 			masterList += "\n"
-			client.send_message(message.author, "here:")
-			client.send_message(message.author, masterList)
+
+
+		client.send_message(message.author, "here:")
+		client.send_message(message.author, masterList)
 
 
 	#1 in 50 chance to react with a random server-specific image
