@@ -42,8 +42,8 @@ wordStates = [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,
 
 def shuffle(array):
 	for number in range(0, len(array)):
-		first = random.randint(0,35)
-		second = random.randint(0,35)
+		first = random.randint(0,len(array)-1)
+		second = random.randint(0,len(array)-1)
 		temp = array[first]
 		array[first] = array[second]
 		array[second] = temp
