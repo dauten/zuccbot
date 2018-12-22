@@ -267,7 +267,8 @@ async def public(message):
 
 		wordStates = shuffle(wordStates)
 
-		# POPULATE wordStates
+		print("all done")
+
 
 	elif message.content.lower().startswith("~flip"):
                #playing field initialized, post it
