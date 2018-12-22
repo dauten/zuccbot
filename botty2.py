@@ -38,7 +38,16 @@ lon = -89.999
 board = []
 teamA = [] #list of user id's in team A
 teamB = [] #list of user id's in team B
-wordStates = [] #list of states for the corresponding word in board.  0=red, 1=blue, 2=gray, 3=black
+wordStates = [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2] #list of states for the corresponding word in board.  0=red, 1=blue, 2=gray, 3=black
+
+async def shuffle(array):
+	for number in range(0, len(array)):
+		first = random.randint(1,36)
+		second = random.randint(1,36)
+		temp = array[first]
+		array[first] = array[second]
+		array[second] = temp
+	return array
 
 #will return 12 hour forecast.  currently inaccurate and therefore in progress
 async def weather():
@@ -86,6 +95,7 @@ async def public(message):
 	global session
 	global dank
 	global board
+	global wordStates
 	#check how dank we are, if we've received too many shitposts we need to inspire those godless heathens
 	if message.channel is client.get_channel(shitpostingstreet):
 		dank+=1
@@ -254,6 +264,8 @@ async def public(message):
 				c = 0
 				outstring += "\n"
 		await client.send_message(message.channel, outstring)
+
+		wordStates = shuffle(wordStates)
 
 		# POPULATE wordStates
 
