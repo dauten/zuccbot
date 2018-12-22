@@ -319,7 +319,7 @@ async def public(message):
 			masterList += "\n"
 
 
-		client.send_message(message.author, "here:")
+		client.send_message(message.channel, "here:")
 		client.send_message(message.author, masterList)
 
 
