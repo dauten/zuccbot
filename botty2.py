@@ -40,14 +40,15 @@ teamA = [] #list of user id's in team A
 teamB = [] #list of user id's in team B
 wordStates = [0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,3,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2] #list of states for the corresponding word in board.  0=red, 1=blue, 2=gray, 3=black
 
-def shuffle(array):
-	for number in range(0, len(array)):
-		first = random.randint(0,len(array)-1)
-		second = random.randint(0,len(array)-1)
-		temp = array[first]
-		array[first] = array[second]
-		array[second] = temp
-	return array
+def shuffle():
+	global wordStates
+	for number in range(0, 30):
+		first = random.randint(0,len(wordStates)-1)
+		second = random.randint(0,len(wordStates)-1)
+		temp = wordStates[first]
+		wordStates[first] = wordStates[second]
+		wordStates[second] = temp
+
 
 #will return 12 hour forecast.  currently inaccurate and therefore in progress
 async def weather():
@@ -265,7 +266,7 @@ async def public(message):
 				outstring += "\n"
 		await client.send_message(message.channel, outstring)
 
-		wordStates = shuffle(wordStates)
+		shuffle()
 
 		print("all done")
 
@@ -311,9 +312,9 @@ async def public(message):
 				 masterList += board[each] + " is red"
 			if wordStates[each] == 1:
 				 masterList += board[each] + " is blue"
-			if wordStates[each] == 0:
+			if wordStates[each] == 2:
 				 masterList += board[each] + " is civilian"
-			if wordStates[each] == 0:
+			if wordStates[each] == 3:
 				 masterList += board[each] + " is assassin"
 			masterList += "\n"
 
