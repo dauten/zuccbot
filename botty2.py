@@ -302,6 +302,7 @@ async def public(message):
 		await client.send_message(message.channel, outstring)
 
 	elif message.content.lower().startswith("~spy"):
+		print("spy entered")
 		masterList = ""
 		for each in range(0, len(board)):
 			print(each)
