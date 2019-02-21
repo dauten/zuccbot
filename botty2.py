@@ -215,6 +215,12 @@ async def public(message):
 			dicemod=int(t.group(0)[1:])
 		else:
 			dicemod=0
+		negMod = re.search("(\-)([0-9])+", message.content.lower())
+		if negMod:
+			negMod = int(t.group(0)[1:])
+		else:
+			negMod = 0
+		diceMod = diceMod - negMod
 		#print list of results + total sum
 		if not int(dicemod) > 0:
 			dicemod = 0
